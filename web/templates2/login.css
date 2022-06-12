@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.backhome{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+}
+#background{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #b7e9b9;
+}
+
+.login{
+    width: 25em;
+    height: 34.5em;
+    padding: 3em 1em;
+    margin: auto 1em;
+    border-radius: 0.5em;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login h2{
+    line-height: 1.5em;
+}
+
+.login .logo-login{
+    text-align: center;
+}
+
+.login .logo-login img{
+    width: 4em;
+    height: 4em;
+    text-align: center;
+}
+
+.login .title-login{
+    text-align: center;
+    margin: 1.5em 0;
+}
+
+.login .input-user{
+    height: 40px;
+    max-width: 20em;
+    margin: auto;
+    border-radius: 3px;
+    background-color: white;
+    border: 0.1em solid #7fad39;
+}
+
+.login .input-password{
+    height: 40px;
+    max-width: 20em;
+    border-radius: 3px;
+    margin: 1.5em auto 0 auto;
+    background-color: white;
+    border: 0.1em solid #7fad39;
+}
+
+.login input{
+    width: 16em;
+    border: none;
+    outline: none;
+    line-height: 35px;
+}
+
+.login i{
+    margin: auto 1em;
+    color: #7fad39;
+}
+
+.login .btn-login{
+    text-align: center;
+}
+
+.login button{
+    height: 40px;
+    width: 20em;
+    border: none;
+    font-size: 1em;
+    padding: 0.5em 2em;
+    margin: 1.5em auto 0 auto;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+    background-color: #7fad39;
+}
+.login button:hover{
+    background-color: #617c37;
+}
+.login .link-register{
+    margin-top: 2em;
+    text-align: center;
+}
+
+.login .or{
+    margin-top: 2em;
+    text-align: center;
+    color: gray;
+}
+
+a{
+    text-decoration: none;
+    color: #7fad39;
+    font-weight: bold;
+}
+
+.login .other-login ul{
+    margin-top: 2em;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+	text-align: center;
+}
+
+.login .other-login ul i{
+    font-size: 2em;
+}

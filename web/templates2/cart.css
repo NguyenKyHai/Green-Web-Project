@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form_info{
+    padding: 4%;
+    background-color: rgb(225, 250, 228);
+    display: flex;
+    justify-content: space-evenly;
+}
+table td{
+    padding: 5px 10px;
+}
+input, textarea, select{
+    border: solid 1px #ddd;
+    padding: 5px 20px;
+    width: 100%;
+}
+select{
+    width: 180px;
+}
+.note{
+    color: rgb(31, 173, 50);
+}
+.form_info h4{
+    line-height: 30px;
+}
+form{
+    border: solid 2px rgb(31, 173, 50);
+    width: 40%;
+    padding: 2%;
+    background-color: rgb(247, 243, 243);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+span{
+    color: rgb(31, 173, 50);
+    font-size: 18px;
+}
+table{
+    width: 100%;
+}
+
+input[type="submit"]{
+    width: 100%;
+    background: rgb(31, 173, 50);
+    color:#fff;
+
+}
+td{
+    line-height: 30px;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control {
+        width: 20%;
+        display: inline !important;
+    }
+
+    .actions .btn {
+        width: 36%;
+        margin: 1.5em 0;
+    }
+
+    .actions .btn-info {
+        float: left;
+    }
+
+    .actions .btn-danger {
+        float: right;
+    }
+
+    table#cart thead {
+        display: none;
+    }
+
+    table#cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width: 320px;
+    }
+
+    table#cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+    }
+
+    table#cart tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 8rem;
+    }
+
+    table#cart tfoot td {
+        display: block;
+    }
+
+    table#cart tfoot td .btn {
+        display: block;
+    }
+}
+
+.delivery-product{
+    width: 50%;
+}

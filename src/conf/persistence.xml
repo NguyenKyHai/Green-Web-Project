@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="WebProjectPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>laptrinh.com.model.Category</class>
+    <class>laptrinh.com.model.Cart</class>
+    <class>laptrinh.com.model.Users</class>
+    <class>laptrinh.com.model.Cartitem</class>
+    <class>laptrinh.com.model.Product</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-107-23-135-132.compute-1.amazonaws.com:5432/dbo03g2bcrn71l"/>
+      <property name="javax.persistence.jdbc.user" value="syihyzzaxfoohr"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="eb5b5cda9e8a4746702b5b8ab2e5a846007ee685c77ae9c966fc5ee9242490c5"/>
+    </properties>
+  </persistence-unit>
+</persistence>

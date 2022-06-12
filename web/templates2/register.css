@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.backhome{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+}
+#background{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #b7e9b9;
+}
+
+.register{
+    width: 25em;
+    height: 34.5em;
+    padding: 3em 1em;
+    margin: auto 1em;
+    border-radius: 0.5em;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.register h2{
+    line-height: 1.5em;
+}
+
+.register .logo-register{
+    text-align: center;
+}
+
+.register .logo-register img{
+    width: 4em;
+    height: 4em;
+    text-align: center;
+}
+
+.register .title-register{
+    text-align: center;
+    margin: 1.5em 0;
+}
+
+.register .input-user{
+    max-width: 20em;
+    margin: auto;
+    border-radius: 3px;
+    background-color: white;
+    border: 0.1em solid #7fad39;
+}
+
+.register .input-email{
+    max-width: 20em;
+    margin: 1.5em auto 0 auto;
+    border-radius: 3px;
+    background-color: white;
+    border: 0.1em solid #7fad39;
+}
+
+.register .input-password{
+    max-width: 20em;
+    margin: 1.5em auto 0 auto;
+    border-radius: 3px;
+    background-color: white;
+    border: 0.1em solid #7fad39;
+}
+
+.register .input-repeat-password{
+    max-width: 20em;
+    margin: 1.5em auto 0 auto;
+    border-radius: 3px;
+    background-color: white;
+    border: 0.1em solid #7fad39;
+}
+
+.register input{
+    width: 20em;
+    margin-left: 2em;
+    border: none;
+    outline: none;
+    line-height: 2.5em;
+}
+
+.register i{
+    margin: auto 1em;
+    color: #7fad39;
+}
+
+.register .btn-register{
+    text-align: center;
+}
+
+.register button{
+    height: 40px;
+    width: 20em;
+    border: none;
+    font-size: 1em;
+    padding: 0.5em 2em;
+    margin: 1.5em auto 0 auto;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+    background-color: #7fad39;
+}
+.register button:hover{
+    background-color: #617c37;
+}
+.register .or{
+    margin-top: 2em;
+    text-align: center;
+    color: gray;
+}
+
+.register .other-register ul{
+    margin-top: 2em;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+	text-align: center;
+}
+
+.register .other-register ul i{
+    font-size: 2em;
+}
+
