@@ -1,11 +1,11 @@
 # Green-Web-Project: website bán thực phẩm.  
 **Công nghệ sử dụng:**
-- HTML, CSS, Bootrap
+- HTML, CSS, Bootstrap
 - Servlet, JSP
 - JPA
-- Postgresql
+- PostgreSQL
 - Heroku: deploy.  
-**Chức năng chính:**
+**Chức năng chính:**  
 - CRUD, search, đặt hàng.
 - Gửi email đơn hàng về người dùng sau khi đặt mua.
 - Báo cáo, thống kê sản phẩm theo: ngày, tháng, sản phẩm tồn kho.  
