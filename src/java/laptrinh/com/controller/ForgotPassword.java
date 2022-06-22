@@ -45,9 +45,9 @@ public class ForgotPassword extends HttpServlet {
                 String pass = RandomString.randomPassword();
                 u.setPassword(pass);
                 dao.update(u);
-                String text = "Mat khau moi la " + pass + "\nTran trong";
+                String text = "Mat khau moi la: " + pass + "\nTran trong!";
                 JavaMail.sendMail(u.getEmail(), "Thay doi mat khau", text);
-                request.setAttribute("message", "Thay đổi mật khẩu thành công. Vui lòng kiểm tra mail");
+                request.setAttribute("message", "Thay đổi mật khẩu thành công. Vui lòng kiểm tra email");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         }

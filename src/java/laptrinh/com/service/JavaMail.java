@@ -19,7 +19,7 @@ public class JavaMail {
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
         String myAccountEmail="greenmarket827@gmail.com";
-        String password="Greenmarket@827";
+        String password="sbphyqeklwuawsuh";
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
             @Override

@@ -1,10 +1,12 @@
 package laptrinh.com.dao;
 
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -25,17 +27,9 @@ public class CartItemDao {
         return total;
     }
 
-    public long getVat(long total) {
-        return (long) (total * 0.02);
-    }
-
-    public long getSum(long total) {
-        return (long) (total * 1.02);
-    }
-
     public List<Cartitem> findAllCartItem() {
         EntityManager em = JpaUtil.getEntityManager();
-        TypedQuery<Cartitem> query = em.createQuery("SELECT c FROM Cartitem c", Cartitem.class);
+        TypedQuery<Cartitem> query = em.createQuery("SELECT c FROM Cartitem c order by c.id desc", Cartitem.class);
         return query.getResultList();
     }
 
@@ -107,14 +101,14 @@ public class CartItemDao {
     public List<Cartitem> findStatus(int status) {
         EntityManager em = JpaUtil.getEntityManager();
 
-        TypedQuery<Cartitem> query = em.createQuery("SELECT c FROM Cartitem c where c.cartid.status=:status", Cartitem.class);
+        TypedQuery<Cartitem> query = em.createQuery("SELECT c FROM Cartitem c where c.cartid.status=:status ", Cartitem.class);
         query.setParameter("status", status);
         return query.getResultList();
     }
 
     public long countCartByDate(Date buydate) {
         EntityManager em = JpaUtil.getEntityManager();
-        TypedQuery<Long> query = em.createQuery("SELECT count(c.cartid) FROM Cartitem c where c.cartid.buydate=:buydate", Long.class);
+        TypedQuery<Long> query = em.createQuery("SELECT count(c.cartid) FROM Cartitem c where c.cartid.buydate=:buydate ", Long.class);
         query.setParameter("buydate", buydate);
         return query.getSingleResult();
     }
@@ -169,13 +163,17 @@ public class CartItemDao {
         return query.getResultList();
     }
 
-    public static void main(String[] args) throws ParseException {
-       CartItemDao itemdao = new CartItemDao();
-       CartDao dao=new CartDao();
-       ProductDao pdao=new ProductDao();
-       Product p=pdao.findByProductId(8);
-       Cart cart=dao.findByCartId(28);
-       Cartitem item=new Cartitem(1,cart,p);
-       itemdao.insert(item);
-   }
+//    public static void main(String[] args) throws ParseException {
+////       CartItemDao itemdao = new CartItemDao();
+////       CartDao dao=new CartDao();
+////       ProductDao pdao=new ProductDao();
+////       Product p=pdao.findByProductId(8);
+////       Cart cart=dao.findByCartId(28);
+////       Cartitem item=new Cartitem(1,cart,p);
+////       itemdao.insert(item);
+////       
+////        NumberFormat formatter = NumberFormat.getInstance(new Locale("vi","VN"));
+////        System.out.println("Tiền: " + formatter.format(1000000));
+//
+//    }
 }

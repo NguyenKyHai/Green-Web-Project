@@ -2,8 +2,10 @@ package laptrinh.com.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +37,7 @@ public class OrderControl extends HttpServlet {
         String address = request.getParameter("address");
         String sodienthoai = request.getParameter("sodienthoai");
         String info = "Ho ten: " + username + "\nDia chi: " + address + "\nSDT: " + sodienthoai + "\n";
-
+                
         HttpSession session = request.getSession();
         int qcart = (int) session.getAttribute("qcart");
         List<Cartitem> list = new ArrayList<>();
@@ -52,6 +54,7 @@ public class OrderControl extends HttpServlet {
             u = (Users) session.getAttribute("usersession");
             Cart cart = new Cart(date, info, 0, u);
             dao.insert(cart);
+            info+="San pham da mua:\n";
             for (Cartitem item : list) {
                 Cartitem cartitem = new Cartitem(item.getQuantity(), cart, item.getProductid());
                 itemdao.insert(cartitem);
@@ -59,15 +62,15 @@ public class OrderControl extends HttpServlet {
             }
 
             long total = itemdao.getTotal(list);
-            long sum = itemdao.getSum(total);
-            String subject = "Hoa don tu GreenMarket";
-            String text = "Chan thanh cam on quy khach da mua hang!"
+            NumberFormat formatter = NumberFormat.getInstance(new Locale("vi","VN"));
+            String subject = "Don hang tu Green Market";
+            String text = "Chan thanh cam on quy khach da mua hang tren Green Market!"
                     + "\nThong tin chi tiet cua quy khach ve don hang:\n" + info
-                    + "Tong tien: " + Long.toString(sum)
-                    + "\nChung toi se lien he quy khach trong thoi gian som nhat";
+                    + "Tong tien: " + formatter.format(total)+" VND"
+                    + "\nChung toi se lien he quy khach trong thoi gian som nhat.";
             JavaMail.sendMail(u.getEmail(), subject, text);
             session.removeAttribute("order");
-            session.removeAttribute("sum");
+            session.removeAttribute("total");
             session.removeAttribute("qcart");
             request.getRequestDispatcher("home").forward(request, response);
         }

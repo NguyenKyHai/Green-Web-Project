@@ -20,7 +20,7 @@ public class LogoutControl extends HttpServlet {
         session.removeAttribute("usersession");
         session.removeAttribute("order");
         session.removeAttribute("qcart");
-        session.removeAttribute("sum");
+        session.removeAttribute("total");
         request.getRequestDispatcher("home").forward(request, response);
         
     }

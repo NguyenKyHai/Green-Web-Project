@@ -30,14 +30,11 @@ public class ShowCartControl extends HttpServlet {
         } else {
             list = (List) session.getAttribute("order");
             long total = dao.getTotal(list);
-            long vat = dao.getVat(total);
-            long sum = dao.getSum(total);
             int qcart = list.size();
             CategoryDao categoryDao = new CategoryDao();
             List<Category> listCategorys = categoryDao.findAllCategory();
             request.setAttribute("listC", listCategorys);
             request.setAttribute("list", list);
-            session.setAttribute("sum", sum);
             session.setAttribute("qcart", qcart);
             request.getRequestDispatcher("cart.jsp").forward(request, response);
         }

@@ -48,17 +48,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Sản phẩm</label>
-                                    <input name="sanpham" type="text" value="${item.productid.name}" class="form-control">
+                                    <input name="sanpham" type="text" value="${item.productid.name}" class="form-control" readonly="">
                                 </div>
                                 <div class="form-group">
                                     <label>Số lượng</label>
-                                    <input name="soluong" type="text" value="${item.quantity}" class="form-control" required >
+                                    <input name="soluong" type="text" value="${item.quantity}" class="form-control" readonly="" >
                                 </div>
                                 <div class="form-group">
                                     <fmt:formatDate pattern = "yyyy-MM-dd" 
                                                     value = "${item.cartid.buydate}" var="fmtdate" />
                                     <label>Ngày mua</label>
-                                    <input name="date" type="date" value="${fmtdate}" class="form-control" required>
+                                    <input name="date" type="date" value="${fmtdate}" class="form-control" readonly="">
 
                                 </div>
                                 <div class="form-group">
@@ -124,123 +124,7 @@
                     </table>
                 </div>
             </div>
-            <!-- Edit Modal HTML -->
-            <div id="addEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form action="add" method="post">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Thêm đơn hàng</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Mã đơn hàng</label>
-                                    <input name="id" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tên khách hàng</label>
-                                    <input name="name" type="text" class="form-control" required
-                                           placeholder="Ví dụ: Nguyễn Văn A">
-                                </div>
-                                <div class="form-group">
-                                    <label>Số điện thoại</label>
-                                    <input name="phone" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tên sản phẩm</label>
-                                    <input name="product" type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Số lượng</label>
-                                    <input name="quantity" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Đơn giá</label>
-                                    <input name="price" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tổng giá tiền</label>
-                                    <input name="total-price" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn-cancel" data-dismiss="modal" value="Hủy">
-                                <input type="submit" class="btn-add" value="Thêm">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- Edit Modal HTML -->
-            <div id="editEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form>
-                            <div class="modal-header">
-                                <h4 class="modal-title">Chỉnh sửa đơn hàng</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Mã đơn hàng</label>
-                                    <input name="id" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tên khách hàng</label>
-                                    <input name="name" type="text" class="form-control" required
-                                           placeholder="Ví dụ: Nguyễn Văn A">
-                                </div>
-                                <div class="form-group">
-                                    <label>Số điện thoại</label>
-                                    <input name="phone" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tên sản phẩm</label>
-                                    <input name="product" type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Số lượng</label>
-                                    <input name="quantity" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Đơn giá</label>
-                                    <input name="price" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tổng giá tiền</label>
-                                    <input name="total-price" type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn-cancel" data-dismiss="modal" value="Hủy">
-                                <input type="submit" class="btn-save" value="Lưu">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- Delete Modal HTML -->
-            <div id="deleteEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form>
-                            <div class="modal-header">
-                                <h4 class="modal-title">Xóa đơn hàng hàng</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Bạn có chắc chắn muốn xóa đơn hàng này không ?</p>
-                                <p class="text-warning"><small>Đây là hành động không thể khôi phục</small></p>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn-cancel" data-dismiss="modal" value="Hủy">
-                                <input type="submit" class="btn-delete" value="Xóa">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+
     </body>
 
 </html>

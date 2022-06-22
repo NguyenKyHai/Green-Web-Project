@@ -56,8 +56,7 @@
                         </td>
                         <td colspan="2" class="hidden-xs"> </td>
                         <td class="hidden-xs text-center">
-                            <strong>Tổng tiền: <span><fmt:formatNumber value="${sessionScope.sum}" type="currency"/></span></strong></br>
-                            <strong>(Đã bao gồm thuế: 2%)</strong>
+                            <strong>Tổng tiền: <span><fmt:formatNumber value="${sessionScope.total}" type="currency"/></span></strong></br>
                         </td>
                         <td><a href="remove-all" class="btn btn-danger btn-block">Xóa hết
                         </td>
@@ -72,7 +71,7 @@
                     <h4 class="note">Quý khách vui lòng cung cấp đầy đủ các thông tin</h4>
                     <h5>Cám ơn quý khách đã tin tưởng và mua hàng tại Website của chúng tôi</h5>
                 </div>
-                <form action="order" method="post" class="delivery-product">
+                <form action="order" method="post" class="delivery-product" accept-charset="UTF-8">
                     <table>
                         <tr>
                             <td>Tên của bạn</td>
@@ -110,9 +109,9 @@
                 </form>
             </c:if>
             <c:if test="${sessionScope.usersession==null}">
-              <div style="margin-top: 30px;">
-                <a href="login" class="btn btn-success">MUA HÀNG</a>
-            </div>
+                <div style="margin-top: 30px;">
+                    <a href="login" class="btn btn-success">MUA HÀNG</a>
+                </div>
             </c:if>
         </div>
 

@@ -29,10 +29,11 @@
             <fmt:setLocale value="vi-VN"/>
             <%@include file="common/navbar-statistical.jsp" %>
             <div class="head-item">Thống kê sản phẩm theo ngày</div>
+            <c:set var="today" value="<%=new java.util.Date()%>" />
             <form action="statistical-by-date" method="get" style="text-align: center; padding-top: 20px;">
                 <label>Chọn ngày: </label>
-                  <fmt:formatDate pattern = "yyyy-MM-dd" 
-                                                    value = "${date}" var="fmtdate" />
+                <fmt:formatDate pattern = "yyyy-MM-dd" 
+                                value = "${date!=null?date:today}" var="fmtdate" />
                 <input type="date" name="date" value="${fmtdate}" placeholder="dd/mm/yyyy" />    
                 <input type="submit" value="Thống kê"/>
             </form>
@@ -63,7 +64,7 @@
                                     </td>
                                     <td><fmt:formatNumber value="${o.productid.price}" type="currency"/></td>
                                     <td>${o.quantity}</td>
-                                    <td>${o.productid.price*o.quantity}</td>
+                                    <td><fmt:formatNumber value="${o.productid.price*o.quantity}" type="currency"/></td>
                                     <td>${o.productid.categoryid.name}</td>
                                 </tr>
                             </c:forEach>

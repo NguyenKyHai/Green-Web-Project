@@ -45,19 +45,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label>UserName</label>
-                                    <input name="username" type="text" value="${user.username}" class="form-control">
+                                    <input name="username" type="text" value="${user.username}" class="form-control" readonly="">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input name="password" type="text" value="${user.password}" class="form-control" required >
+                                    <input name="password" type="password" value="" class="form-control" readonly="" >
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input name="email" type="text" value="${user.email}" class="form-control" required>
+                                    <input name="email" type="text" value="${user.email}" class="form-control" readonly="">
                                 </div>
                                 <div class="form-group">
                                     <label>Role</label>
-                                    <input name="role" type="text" value="${user.role}" class="form-control" required>
+                                    <input name="role" type="text" value="${user.role==1?"Admin":"User"}" class="form-control" >
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -81,16 +81,13 @@
                                 <tr>
                                     <td>${o.id}</td>
                                     <td>${o.username}</td>
-                                    <td>${o.password}</td>
+                                    <td>**********</td>
                                     <td>${o.email}</td>
                                     <td>${o.role}</td>
 
                                     <td>
                                         <a href="edit-user?id=${o.id}" class="edit" data-toggle="modal">
                                             <i class="material-icons" data-toggle="tooltip" title="Chỉnh sửa người dùng">&#xE254;</i>
-                                        </a>
-                                        <a href="delete-user?id=${o.id}" class="delete" data-toggle="modal">
-                                            <i class="material-icons" data-toggle="tooltip" title="Xóa người dùng">&#xE872;</i>
                                         </a>
                                     </td>
                                 </tr>
@@ -111,19 +108,19 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label>UserName</label>
-                                    <input name="username" type="text" class="form-control" required>
+                                    <input name="username" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>PassWord</label>
-                                    <input name="password" type="text" class="form-control" required>
+                                    <input name="password" type="password" class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input name="email" type="email" class="form-control" required>
+                                    <input name="email" type="email" class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label>Role</label>
-                                    <input name="role" type="text" class="form-control" required>
+                                    <input name="role" type="text" class="form-control" >
                                 </div>
                             </div>
                             <div class="modal-footer">

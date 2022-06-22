@@ -17,7 +17,7 @@ public class RemoveAll extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         session.removeAttribute("order");
-        session.removeAttribute("sum");
+        session.removeAttribute("total");
         session.removeAttribute("qcart");
         request.getRequestDispatcher("cart").forward(request, response);
     }

@@ -6,6 +6,8 @@
 package laptrinh.com.model;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
+import java.util.Locale;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -114,8 +116,9 @@ public class Cartitem implements Serializable {
 
     @Override
     public String toString() {
-        return "Ten san pham: " + productid.getName() + ", so luong: " +quantity +
-                ", thanh tien: " + productid.getPrice()*quantity ;
+       NumberFormat formatter = NumberFormat.getInstance(new Locale("vi","VN"));
+        return  productid.getName() + ", so luong: " + quantity
+                + ", thanh tien: " + formatter.format(productid.getPrice() * quantity)+" VND";
     }
-    
+
 }

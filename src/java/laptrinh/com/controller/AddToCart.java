@@ -61,9 +61,9 @@ public class AddToCart extends HttpServlet {
             CartItemDao itemdao = new CartItemDao();
             int qcart = list.size();
             long total = itemdao.getTotal(list);
-            long sum = itemdao.getSum(total);
+            
             session.setAttribute("qcart", qcart);
-            session.setAttribute("sum", sum);
+            session.setAttribute("total", total);
             if(q==null){
             response.sendRedirect("home");
             }

@@ -60,7 +60,6 @@
                 <nav class="header__menu">
                     <ul>
                         <li><a href="./">Trang chủ</a></li>
-                        <li><a href="#buyProduct">Mua hàng</a></li>
                         <li>
                             <a href="#">Khác</a>
                             <ul class="header__menu__dropdown">
@@ -76,14 +75,21 @@
                 <div class="header__cart">
                     <ul>
                         <li>
-                            <a href="cart">
-                                <i class="fa fa-shopping-bag">Giỏ hàng</i> <span>${sessionScope.qcart}</span>
-                            </a>
+                            <c:if test="${sessionScope.qcart==null||sessionScope.qcart==0}">   
+                                <a href="cart">
+                                    <i class="fa fa-shopping-bag">Giỏ hàng</i> <span></span>
+                                </a>
+                            </c:if>
+                            <c:if test="${sessionScope.qcart!=null && sessionScope.qcart>0}">   
+                                <a href="cart">
+                                    <i class="fa fa-shopping-bag">Giỏ hàng</i> <span>${sessionScope.qcart}</span>
+                                </a>
+                            </c:if>
                         </li>
                     </ul>
-                    <c:if test="${sessionScope.sum!=null}">   
+                    <c:if test="${sessionScope.total!=null || sessionScope.total>0}">   
                         <div class="header__cart__price">
-                            Tổng: <span><fmt:formatNumber value="${sessionScope.sum}" type="currency"/></span>
+                            Tổng: <span><fmt:formatNumber value="${sessionScope.total}" type="currency"/></span>
                         </div>
                     </c:if>
                 </div>
