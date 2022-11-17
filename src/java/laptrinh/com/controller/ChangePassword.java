@@ -32,10 +32,10 @@ public class ChangePassword extends HttpServlet {
         HttpSession session = request.getSession();
         Users u = (Users) session.getAttribute("usersession");
         if (!u.getPassword().equals(oldpass)) {
-            request.setAttribute("message", "Mật khẩu cũ sai");
+            request.setAttribute("message", "Mật khẩu cũ chưa hợp lệ");
             request.getRequestDispatcher("change-password.jsp").forward(request, response);
         } else if (!newpass.equals(renewpass)) {
-            request.setAttribute("message", "Mật khẩu mới chưa trùng khớp");
+            request.setAttribute("message", "Xác nhận mật khẩu chưa chính xác. Vui lòng kiểm tra");
             request.getRequestDispatcher("change-password.jsp").forward(request, response);
         } else {
             u.setPassword(newpass);

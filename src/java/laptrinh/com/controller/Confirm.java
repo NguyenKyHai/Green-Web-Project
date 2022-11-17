@@ -35,12 +35,14 @@ public class Confirm extends HttpServlet {
             userDao.insert(u);
             session.removeAttribute("code");
             session.removeAttribute("user");
-            response.sendRedirect("login.jsp");
+            request.setAttribute("message", "Đăng ký tài khoản thành công");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        } else {
+            // response.sendRedirect("confirm.jsp");
+            request.setAttribute("message", "Mã xác nhận chưa đúng");
+            request.getRequestDispatcher("confirm.jsp").forward(request, response);
         }
-        else{
-            response.sendRedirect("confirm.jsp");
-        }
-       
+
     }
 
     /**

@@ -26,45 +26,52 @@ public class SignupControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String user = request.getParameter("user");
         String pass = request.getParameter("pass");
         String email = request.getParameter("email");
         String repass = request.getParameter("repass");
 
-        if (!pass.equals(repass)) {
-            request.setAttribute("message", "Mật khẩu chưa trùng khớp");
+        if (pass.length() < 6) {
+            request.setAttribute("message", "Mật khẩu ít nhất phải từ 6 ký tự trở lên");
             request.setAttribute("username", user);
             request.setAttribute("pass", pass);
             request.setAttribute("email", email);
             request.getRequestDispatcher("register.jsp").forward(request, response);
         } else {
-            UserDao userDao = new UserDao();
-            boolean a = userDao.CheckLoginExist(user);
-            boolean e=userDao.CheckEmailExist(email);
-            if (a == false && e==false) {
-                Users u = new Users(user, pass, email, 0);
-                String code = RandomString.randomPassword();
-                JavaMail.sendMail(email,"Ma xac nhan","Ma xac nhan cua ban la: "+code);
-                HttpSession session = request.getSession();
-                session.setAttribute("code", code);
-                session.setAttribute("userC", u);
-                request.getRequestDispatcher("confirm.jsp").forward(request, response);
-            } 
-            else if(e==true){
-                request.setAttribute("message", "Email đã tồn tại");
+            if (!pass.equals(repass)) {
+                request.setAttribute("message", "Xác nhận mật khẩu chưa chính xác");
                 request.setAttribute("username", user);
                 request.setAttribute("pass", pass);
                 request.setAttribute("email", email);
                 request.getRequestDispatcher("register.jsp").forward(request, response);
-            }
-            else {
-                request.setAttribute("message", "Tài khoản đã tồn tại");
-                request.setAttribute("username", user);
-                request.setAttribute("pass", pass);
-                request.setAttribute("email", email);
-                request.getRequestDispatcher("register.jsp").forward(request, response);
+            } else {
+                UserDao userDao = new UserDao();
+                boolean a = userDao.CheckLoginExist(user);
+                boolean e = userDao.CheckEmailExist(email);
+                if (a == false && e == false) {
+                    Users u = new Users(user, pass, email, 0);
+                    String code = RandomString.RandomString();
+                    JavaMail.sendMail(email, "Ma xac nhan", "Ma xac nhan cua ban la: " + code);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("code", code);
+                    session.setAttribute("userC", u);
+                    request.setAttribute("message", "Chúng tôi đã gửi một mã xác nhận đến email của bạn. Vui lòng kiểm tra email.");
+                    request.getRequestDispatcher("confirm.jsp").forward(request, response);
+                } else if (e == true) {
+                    request.setAttribute("message", "Email đã tồn tại trên hệ thống. Vui lòng nhập một email khác");
+                    request.setAttribute("username", user);
+                    request.setAttribute("pass", pass);
+                    request.setAttribute("email", email);
+                    request.getRequestDispatcher("register.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("message", "Tài khoản đã tồn tại trên hệ thống. Vui lòng nhập tài khoản khác");
+                    request.setAttribute("username", user);
+                    request.setAttribute("pass", pass);
+                    request.setAttribute("email", email);
+                    request.getRequestDispatcher("register.jsp").forward(request, response);
+                }
             }
         }
     }
