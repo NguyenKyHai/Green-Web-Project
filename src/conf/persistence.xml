@@ -15,10 +15,10 @@
       <property name="javax.persistence.jdbc.password" value="123456"/>
     </properties>--> 
      <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/GreenMarketDB"/>
-      <property name="javax.persistence.jdbc.user" value="postgres"/>
+     <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-107-23-135-132.compute-1.amazonaws.com:5432/dbo03g2bcrn71l"/>
+      <property name="javax.persistence.jdbc.user" value="syihyzzaxfoohr"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="123456"/>
+      <property name="javax.persistence.jdbc.password" value="eb5b5cda9e8a4746702b5b8ab2e5a846007ee685c77ae9c966fc5ee9242490c5"/>
     </properties>
   </persistence-unit>
 </persistence>
