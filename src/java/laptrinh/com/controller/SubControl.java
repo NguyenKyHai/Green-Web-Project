@@ -38,6 +38,11 @@ public class SubControl extends HttpServlet {
         }
       
         session.setAttribute("order", list);
+         if (list.isEmpty()) {
+            session.removeAttribute("order");
+            session.removeAttribute("total");
+            session.removeAttribute("qcart");
+        }
         response.sendRedirect("cart");
     }
 
