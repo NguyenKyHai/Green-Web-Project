@@ -30,7 +30,7 @@ public class LoginControl extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("user");
         String password = request.getParameter("password");
-              UserDao userDao = new UserDao();
+        UserDao userDao = new UserDao();
         boolean a = userDao.Login(username, password);
         if (a == false) {
             request.setAttribute("message", "Tên đăng nhập hoặc mật khẩu chưa đúng");

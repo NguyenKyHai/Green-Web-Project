@@ -60,6 +60,7 @@
                                     <input name="role" type="text" value="${user.role==1?"Admin":"User"}" class="form-control" >
                                 </div>
                             </div>
+                            <div>  <p style="color:red">${message}</p> </div>
                             <div class="modal-footer">
                                 <input type="submit" class="btn-save" value="Lưu">
                             </div>
@@ -108,19 +109,19 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label>UserName</label>
-                                    <input name="username" type="text" class="form-control">
+                                    <input name="username" type="text" class="form-control" required="">
                                 </div>
                                 <div class="form-group">
                                     <label>PassWord</label>
-                                    <input name="password" type="password" class="form-control" >
+                                    <input name="password" type="password" class="form-control" required="" >
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input name="email" type="email" class="form-control" >
+                                    <input name="email" type="email" class="form-control" required="" >
                                 </div>
                                 <div class="form-group">
                                     <label>Role</label>
-                                    <input name="role" type="text" class="form-control" >
+                                    <input name="role" type="text" class="form-control" required="">
                                 </div>
                             </div>
                             <div class="modal-footer">

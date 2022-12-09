@@ -8,7 +8,13 @@
     <class>laptrinh.com.model.Cartitem</class>
     <class>laptrinh.com.model.Product</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
+<!--    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/GreenMarketDB"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="123456"/>
+    </properties>--> 
+     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/GreenMarketDB"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>

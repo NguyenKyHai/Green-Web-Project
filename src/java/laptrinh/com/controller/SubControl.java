@@ -25,7 +25,7 @@ public class SubControl extends HttpServlet {
         Product product = dao.findByProductId(id);
         HttpSession session = request.getSession();
         List<Cartitem> list = (List) session.getAttribute("order");
-       
+
         for (int i = 0; i < list.size(); i++) {
             if (Objects.equals(list.get(i).getProductid().getProductid(), product.getProductid())) {
                 if (list.get(i).getQuantity() == 1) {
@@ -36,7 +36,7 @@ public class SubControl extends HttpServlet {
 
             }
         }
-        
+      
         session.setAttribute("order", list);
         response.sendRedirect("cart");
     }

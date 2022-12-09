@@ -19,6 +19,7 @@ public class RemoveAll extends HttpServlet {
         session.removeAttribute("order");
         session.removeAttribute("total");
         session.removeAttribute("qcart");
+      
         request.getRequestDispatcher("cart").forward(request, response);
     }
 

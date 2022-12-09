@@ -33,8 +33,8 @@ public class SignupControl extends HttpServlet {
         String email = request.getParameter("email");
         String repass = request.getParameter("repass");
 
-        if (pass.length() < 6) {
-            request.setAttribute("message", "Mật khẩu ít nhất phải từ 6 ký tự trở lên");
+        if (pass.length() < 6 || pass.length() > 20) {
+            request.setAttribute("message", "Mật khẩu phải trong khoảng từ 6 - 20 ký tự");
             request.setAttribute("username", user);
             request.setAttribute("pass", pass);
             request.setAttribute("email", email);

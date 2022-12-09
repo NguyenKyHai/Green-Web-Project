@@ -32,21 +32,20 @@ public class EditUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(request.getParameter("userid"));
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String email = request.getParameter("email");
-        int role = Integer.parseInt(request.getParameter("role"));
-        UserDao dao = new UserDao();
-        Users u = dao.findByUserId(id);
+        String role = request.getParameter("role");
 
-        u.setUsername(username);
-        u.setPassword(password);
-        u.setEmail(email);
-        u.setRole(role);
-        dao.update(u);
-        request.setAttribute("user", u);
-        request.getRequestDispatcher("user-management").forward(request, response);
-
+        if (role.equals("1") || role.equals("0")) {
+            UserDao dao = new UserDao();
+            Users u = dao.findByUserId(id);
+            int r = Integer.parseInt(request.getParameter("role"));
+            u.setRole(r);
+            dao.update(u);
+            request.setAttribute("user", u);
+            request.getRequestDispatcher("user-management").forward(request, response);
+        } else {
+            request.setAttribute("message", "Có lỗi, vui lòng kiểm tra");
+            request.getRequestDispatcher("user-management.jsp").forward(request, response);
+        }
     }
 
     @Override
